@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="section">
+    <div class="container">
+      <div class="columns is-mobile is-centered">
+        <div class="column is-half is-narrow">
+          <h1 class="title">Signup</h1>
+          <form action="{{ url_for('signup') }}" method="POST">{{ form.csrf_token }}
+            <div class="field">
+              <label for="" class="label">Name</label>
+              <input type="text" name="name" class="input">
+            </div>
+            <div class="field">
+              <label for="" class="label">Email</label>
+              <input type="email" name="email" class="input">
+            </div>
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <input type="password" name="password" class="input">
+            </div>
+            <button type="submit" class="button is-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

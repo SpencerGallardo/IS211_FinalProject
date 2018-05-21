@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for post in posts %}
+    <section class="section">
+      <div class="container">
+        <a href="{{ url_for('post_slug', slug=post.slug) }}"><h1 class="title">{{ post.title }}</h1></a>
+        <div class="content">
+          {{ post.content|safe|truncate(25) }}
+        </div>
+        <blockquote>- {{ post.user.name }}</blockquote>
+      </div>
+    </section>
+  {% endfor %}
+
+{% endblock content %}

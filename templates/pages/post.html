@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="section">
+    <div class="container">
+      <a href="{{ post.slug }}"><h1 class="title">{{ post.title }}</h1></a>
+      <div class="content">
+        {{ post.content|safe }}
+      </div>
+      {% if current_user.id == post.user_id %}
+        <a href="{{ url_for('edit', slug=post.slug) }}" class="button is-primary" >Edit</a>
+        <a href="{{ url_for('delete', slug=post.slug) }}" class="button is-danger">Delete</a>
+      {% endif %}
+    </div>
+  </section>
+{% endblock content %}
